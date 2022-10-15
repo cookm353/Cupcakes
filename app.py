@@ -18,21 +18,12 @@ connect_db(app)
 @app.route('/')
 def show_home():
     """Display homepage"""
-    return render_template('index.html')
+    form = CupcakeForm()
+    cupcakes = Cupcake.get_cupcakes()
+    
+    return render_template('index.html', form=form, cupcakes=cupcakes)
 
 """API Routes"""
-
-# @app.route('/api/cupcakes', methods=['GET', 'POST'])
-# def get_and_make_cupcakes():
-#     """Get or create a cupcake"""
-#     form = CupcakeForm()
-    
-#     if form.validate_on_submit():
-#         ...
-#     else:
-#         cupcakes = Cupcake.get_cupcakes()
-#         serialized_cupcakes = [Cupcake.serialize_cupcake(c) for c in cupcakes]
-#         ...
 
 @app.route('/api/cupcakes', methods=['GET'])
 def get_cupcakes():
@@ -46,6 +37,7 @@ def get_cupcakes():
 
 @app.route('/api/cupcakes', methods=['POST'])
 def make_cupcake():
+    print(request.json)
     data = {k:v for k,v in request.json.items()}
 
     cupcake = Cupcake.make_cupcake(data)

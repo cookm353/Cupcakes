@@ -1,0 +1,32 @@
+/* General Styles */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: rgb(224, 191, 184);
+}
+
+#mainDiv {
+    background-color: #EEE2DC;
+    height: 100%;
+}
+
+h1 {
+    color: #AC3B61;
+}
+
+img {
+    width: 350px;
+    height: 350px;
+}
+
+/* Cupcake Display Styles */
+
+
+/* Form Styles */
+
+#cupcakeForm {
+
+}

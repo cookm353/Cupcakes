@@ -17,7 +17,8 @@ class Cupcake(db.Model):
     image = db.Column(db.Text, default='https://tinyurl.com/demo-cupcake')
     
     def get_cupcakes():
-        return Cupcake.query.all()
+        # return Cupcake.query.all().order_by(Cupcake.id.desc())
+        return Cupcake.query.order_by(Cupcake.id.asc()).all()
         
     def get_cupcake(id):
         return Cupcake.query.get_or_404(id)

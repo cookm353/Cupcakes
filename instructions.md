@@ -52,12 +52,12 @@
 
 ## Part Five: Start on the Front End
 
-- [ ] **GET /**
-  - [ ] Return an entirely static HTML page
-  - [ ] Should just have an empty list where cupcakes should appear and a form where new cupcakes can be added
-- [ ] Write a JS script w/ Axios and jQuery which...
-  - [ ] Queries the API to get cupcakes and add to the page
-  - [ ] Handles form submission to let the API know about new cupcake and update the list on the page to show it
+- [x] **GET /**
+  - [x] Return an entirely static HTML page
+  - [x] Should just have an empty list where cupcakes should appear and a form where new cupcakes can be added
+- [x] Write a JS script w/ Axios and jQuery which...
+  - [x] Queries the API to get cupcakes and add to the page
+  - [x] Handles form submission to let the API know about new cupcake and update the list on the page to show it
 
 ## Further Study
 
