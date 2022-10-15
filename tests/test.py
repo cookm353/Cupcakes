@@ -1,5 +1,4 @@
 from unittest import TestCase
-
 from app import app
 from models import db, Cupcake
 
@@ -108,7 +107,6 @@ class CupcakeViewsTestCase(TestCase):
 
             self.assertEqual(Cupcake.query.count(), 2)
 
-
     def test_delete_cupcake(self):
         with app.test_client() as client:
             url = '/api/cupcakes/1'
@@ -123,7 +121,6 @@ class CupcakeViewsTestCase(TestCase):
             get_resp = client.get(url)
             self.assertEqual(get_resp.status_code, 404)
             
-            
     def test_edit_cupcake(self):
         with app.test_client() as client:
             url = '/api/cupcakes/1'
@@ -133,3 +130,17 @@ class CupcakeViewsTestCase(TestCase):
             
             self.assertEqual(patch_resp.status_code, 200)
             self.assertEqual("Snickerdoodle", data['cupcake']['flavor'])
+            
+    def test_missing_cupcake_requests(self):
+        with app.test_client() as client:
+            url = '/api/cupcakes/42'
+            
+            get_resp = client.get(url)
+            self.assertEqual(get_resp.status_code, 404)
+            
+            delete_resp = client.delete(url)
+            self.assertEqual(delete_resp.status_code, 404)
+            
+            json = {"flavor": "Amazering"}
+            patch_resp = client.patch(url, json=json)
+            self.assertEqual(patch_resp.status_code, 404)
