@@ -1,41 +1,24 @@
 const BASE_URL = 'http://localhost:5000/api/cupcakes'
 
 class Cupcake {
-    constructor() {
-        this.image
-        this.flavor
-        this.rating
-        this.size
-    }
-
     async fetchAllCupcakes() {
         const cupcakes = await axios.get(BASE_URL);
-        // console.log(cupcakes.data.cupcakes);
         return cupcakes.data.cupcakes;
     }
 
-    async createCupcake(formJSON) {
+    async createCupcake(formData) {
         return await axios.post(BASE_URL, formData)
     }
 
-    async updateCupcake(id) {
-
+    async updateCupcake(id, formData) {
+        return await axios.patch(`${BASE_URL}/${id}`, formData)
     }
 
     async deleteCupcake(id) {
-        await axios.delete(`url/${id}`)
+        return await axios.delete(`${BASE_URL}/${id}`)
     }
 
     async findCupcake(id) {
-        return await axios.get(`url/${id}`)
-    }
-
-    parseCupcakeData(cupcake) {
-        return {
-            "image": cupcake.image,
-            "flavor": cupcake.flavor,
-            "rating": cupcake.rating,
-            "size": cupcake.size
-        }
+        return await axios.get(`${BASE_URL}/${id}`)
     }
 }

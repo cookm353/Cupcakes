@@ -33,7 +33,6 @@ function makeCupcakeHTML(cupcake) {
 
 function titleCase(str) {
     /** Convert A String To Title Case */
-    console.log(str)
     str = str.toLowerCase().split(' ');
     return str.map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
 }
@@ -44,14 +43,19 @@ $(window).on('load', showStartingCupcakes);
 
 $submitBttn.click(async (evt) => {
     evt.preventDefault()
+
+    const formData = getFormData()
+    const postResp = await cupcake.createCupcake(formData)
+    const newCupcake = makeCupcakeHTML(postResp.data.cupcake)
+
+    $cupcakeDisplay.append(newCupcake)
+})
+
+function getFormData() {
     let flavor = $('#flavor').val();
     let size = $('#size').val();
     let rating = $('#rating').val();
     let image = $('#image').val();
 
-    // const postResp = await axios.post(BASE_URL, {flavor, size, rating, image})
-    const postResp = await cupcake.createCupcake({flavor, size, rating, image})
-
-    const newCupcake = makeCupcakeHTML(postResp.data.cupcake)
-    $cupcakeDisplay.append(newCupcake)
-})
+    return {flavor, size, rating, image}
+}
