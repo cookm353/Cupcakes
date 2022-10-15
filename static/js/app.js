@@ -32,7 +32,7 @@ function makeCupcakeHTML(cupcake) {
 }
 
 function titleCase(str) {
-    // Convert A String To Title Case
+    /** Convert A String To Title Case */
     console.log(str)
     str = str.toLowerCase().split(' ');
     return str.map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
@@ -49,7 +49,8 @@ $submitBttn.click(async (evt) => {
     let rating = $('#rating').val();
     let image = $('#image').val();
 
-    const postResp = await axios.post(BASE_URL, {flavor, size, rating, image})
+    // const postResp = await axios.post(BASE_URL, {flavor, size, rating, image})
+    const postResp = await cupcake.createCupcake({flavor, size, rating, image})
 
     const newCupcake = makeCupcakeHTML(postResp.data.cupcake)
     $cupcakeDisplay.append(newCupcake)

@@ -15,7 +15,7 @@ class Cupcake {
     }
 
     async createCupcake(formJSON) {
-        await axios.post(BASE_URL, formJSON)
+        return await axios.post(BASE_URL, formData)
     }
 
     async updateCupcake(id) {
