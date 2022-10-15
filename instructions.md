@@ -61,13 +61,13 @@
 
 ## Further Study
 
-- [ ] Add test to ensure GET/PATCH/DELETE routes return a 404 when the cupcake can't be found
+- [x] Add test to ensure GET/PATCH/DELETE routes return a 404 when the cupcake can't be found
 - [ ] Let users search for cupcakes by typing in a search term, submitting to the backend, and seeing a newly filtered list of cupcakes
   - [ ] Make sure the term is passed to the backend and you're using a LIKE or ILIKE SQL query
-- [ ] Refactor front-end to be object oriented
-  - [ ] Include `fetchAllCupcakes()` and `createCupcakes()` as class methods
-  - [ ] Include instance methods to update, delete, and search for cupcakes
-- [ ] Refactor HTML page to render a form made by WTForms
+- [x] Refactor front-end to be object oriented
+  - [x] Include `fetchAllCupcakes()` and `createCupcakes()` as class methods
+  - [x] Include instance methods to update, delete, and search for cupcakes
+- [x] Refactor HTML page to render a form made by WTForms
 - [ ] Enhance search functionality so you don't have to wait to submit to filter by flavors
 - [ ] Add functionality on front-end to update a cupcake
 - [ ] Add another table for ingredients
@@ -77,4 +77,5 @@
 
 ## Takeaways
 
+- Formatting data for Axios requests is a pain
 - 
