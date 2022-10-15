@@ -63,8 +63,7 @@ def get_cupcake(cupcake_id):
 def update_cupcake(cupcake_id):
     """Edit a cupcake"""
     cupcake = Cupcake.get_cupcake(cupcake_id)
-    
-    # Cupcake.edit_cupcake(cupcake, request.json)
+
     Cupcake.edit_cupcake(cupcake, request)
     
     serialized_cupcake = {'cupcake': Cupcake.serialize_cupcake(cupcake)}
