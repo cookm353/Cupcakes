@@ -78,4 +78,6 @@
 ## Takeaways
 
 - Formatting data for Axios requests is a pain
-- 
+- It's probably time to (re)learn Jasmine
+- Never code in the main branch, only merge edits into it
+- Bootstrap accordions are good in theory, but we'll leave that to the front-end devs
